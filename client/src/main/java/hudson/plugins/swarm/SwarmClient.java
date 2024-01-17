@@ -243,6 +243,11 @@ public class SwarmClient {
             String auth = clientOptions.username + ":" + clientOptions.password;
             String encoded = "Basic " + Base64.getEncoder().encodeToString(auth.getBytes(StandardCharsets.UTF_8));
             builder.header("Authorization", encoded);
+        } else if (clientOptions.bearerToken != null) {
+            logger.fine("Setting HttpClient to use bearer authentication");
+
+            String encoded = "Bearer " + clientOptions.bearerToken;
+            builder.header("Authorization", encoded);
         }
     }
 

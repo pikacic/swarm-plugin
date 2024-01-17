@@ -195,4 +195,7 @@ public class Options {
 
     @Option(name = "-config", usage = "YAML configuration file containing the options.")
     public File config;
+
+    @Option(name = "-bearerToken", usage = "Use 'Authentication: Bearer ...' header to authenticate.")
+    public String bearerToken;
 }
